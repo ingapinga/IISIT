@@ -1,0 +1,21 @@
+Do you have a lot of free time?
+Are you ready to spend a lot of money?
+Do you have fur allergy?
+Do you tolerate noise?
+
+free_time
+spending_money
+allergy
+noise_tolerance
+
+takes_time
+large_price
+fur
+noise
+exotic
+
+You should get a fish tank and some fishes.
+You should get an exotic lizard.
+You should get a cat.
+You should get a dog.
+You should get a parrot.
