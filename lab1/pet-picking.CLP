@@ -1,4 +1,5 @@
-
+
+
 ;;****************
 ;;* DEFFUNCTIONS *
 ;;****************
@@ -155,7 +156,7 @@
   (declare (salience -10))
   (not (pet ?))
   =>
-  (assert (repair "You shouldn't get a pet.")))
+  (assert (pet "You shouldn't get a pet.")))
 ;;;********************************
 ;;;* STARTUP AND CONCLUSION RULES *
 ;;;********************************
