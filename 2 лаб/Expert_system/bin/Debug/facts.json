@@ -1,0 +1,38 @@
+[
+	{
+		"Name": "pet",
+		"Values": [ "You should get a dog.", "You should get a cat.", "You should get a fishes.", "You should get a lizard.", "You should get a parrot.", "You shouldn't get a pet." ]
+	},
+	{
+		"Name": "free_time",
+		"Values": [ "yes", "no" ]
+	},
+	{
+		"Name": "allergies",
+		"Values": [ "yes", "no" ]
+	},
+	{
+		"Name": "noise_tolerance",
+		"Values": [ "yes", "no" ]
+	},
+	{
+		"Name": "spending",
+		"Values": [ "yes", "no" ]
+	},
+	{
+		"Name": "for_whom",
+		"Values": [ "me", "child", "office" ]
+	},
+	{
+		"Name": "fur",
+		"Values": [ "yes", "no" ]
+	},
+	{
+		"Name": "purpose",
+		"Values": [ "decorative", "interactive" ]
+	},
+	{
+		"Name": "exotic",
+		"Values": [ "yes", "no" ]
+	}
+]

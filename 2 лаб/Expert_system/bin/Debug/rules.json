@@ -1,0 +1,398 @@
+[	
+	{
+		"Condition": [
+			{
+				"Name": "free_time",
+				"Value": ""
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "Do you have a lot of free time?",
+		"Value": "",
+		"Variable": "free_time"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "allergies",
+				"Value": ""
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "Do you have any pet allergies?",
+		"Value": "",
+		"Variable": "allergies"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "noise_tolerance",
+				"Value": ""
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "Do you tolerate noise?",
+		"Value": "",
+		"Variable": "noise_tolerance"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "spending",
+				"Value": ""
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "Are you ready to spend a lot of money?",
+		"Value": "",
+		"Variable": "spending"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "for_whom",
+				"Value": ""
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "For whom is the pet for?",
+		"Value": "",
+		"Variable": "for_whom"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "free_time",
+				"Value": "yes"
+			},
+			{
+				"Name": "allergies",
+				"Value": "no"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "yes",
+		"Variable": "fur"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "free_time",
+				"Value": "no"
+			},
+			{
+				"Name": "allergies",
+				"Value": "no"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "no",
+		"Variable": "fur"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "allergies",
+				"Value": "yes"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "no",
+		"Variable": "fur"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "spending",
+				"Value": "yes"
+			},
+			{
+				"Name": "for_whom",
+				"Value": "me"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "decorative",
+		"Variable": "purpose"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "for_whom",
+				"Value": "office"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "decorative",
+		"Variable": "purpose"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "spending",
+				"Value": "no"
+			},
+			{
+				"Name": "for_whom",
+				"Value": "me"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "interactive",
+		"Variable": "purpose"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "for_whom",
+				"Value": "child"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "interactive",
+		"Variable": "purpose"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "spending",
+				"Value": "no"
+			},
+			{
+				"Name": "purpose",
+				"Value": "decorative"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "no",
+		"Variable": "exotic"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "purpose",
+				"Value": "interactive"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "no",
+		"Variable": "exotic"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "purpose",
+				"Value": "decorative"
+			},
+			{
+				"Name": "spending",
+				"Value": "yes"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "yes",
+		"Variable": "exotic"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "fur",
+				"Value": "yes"
+			},
+			{
+				"Name": "noise_tolerance",
+				"Value": "yes"
+			},
+			{
+				"Name": "exotic",
+				"Value": "no"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "You should get a dog.",
+		"Variable": "pet"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "fur",
+				"Value": "yes"
+			},
+			{
+				"Name": "noise_tolerance",
+				"Value": "no"
+			},
+			{
+				"Name": "exotic",
+				"Value": "no"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "You should get a cat.",
+		"Variable": "pet"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "fur",
+				"Value": "no"
+			},
+			{
+				"Name": "noise_tolerance",
+				"Value": "no"
+			},
+			{
+				"Name": "exotic",
+				"Value": "no"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "You should get a fishes.",
+		"Variable": "pet"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "fur",
+				"Value": "no"
+			},
+			{
+				"Name": "noise_tolerance",
+				"Value": "no"
+			},
+			{
+				"Name": "exotic",
+				"Value": "yes"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "You should get a lizard.",
+		"Variable": "pet"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "fur",
+				"Value": "no"
+			},
+			{
+				"Name": "noise_tolerance",
+				"Value": "yes"
+			},
+			{
+				"Name": "exotic",
+				"Value": "yes"
+			},
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": 0,
+		"Question": "",
+		"Value": "You should get a parrot.",
+		"Variable": "pet"
+	},
+	{
+		"Condition": [
+			{
+				"Name": "pet",
+				"Value": ""
+			}
+		],
+		"Priority": -10,
+		"Question": "",
+		"Value": "You shouldn't get a pet.",
+		"Variable": "pet"
+	}
+]
