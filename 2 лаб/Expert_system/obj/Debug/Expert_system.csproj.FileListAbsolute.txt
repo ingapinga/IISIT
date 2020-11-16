@@ -8,3 +8,13 @@ C:\Users\Zetta\Desktop\4 курс ИСИТ\2 лаб\Expert_system\bin\Debug\Expe
 C:\Users\Zetta\Desktop\4 курс ИСИТ\2 лаб\Expert_system\bin\Debug\Expert_system.pdb
 C:\Users\Zetta\Desktop\4 курс ИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.exe
 C:\Users\Zetta\Desktop\4 курс ИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.pdb
+H:\ИИСИТ\2 лаб\Expert_system\bin\Debug\Expert_system.exe.config
+H:\ИИСИТ\2 лаб\Expert_system\bin\Debug\Expert_system.exe
+H:\ИИСИТ\2 лаб\Expert_system\bin\Debug\Expert_system.pdb
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.csprojAssemblyReference.cache
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.Form1.resources
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.Properties.Resources.resources
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.csproj.GenerateResource.cache
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.csproj.CoreCompileInputs.cache
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.exe
+H:\ИИСИТ\2 лаб\Expert_system\obj\Debug\Expert_system.pdb
