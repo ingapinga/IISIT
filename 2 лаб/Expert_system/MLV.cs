@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Expert_system
 {
@@ -14,34 +8,13 @@ namespace Expert_system
         List<Fact> facts;                   // список всех названий фактов и их возможные значения
         List<CurrentFact> current_facts;    // список всех существующих фактов с текущим значением
         string c_fact;                      // показывает по какому факту сейчас работаем
-        public bool UploadKB()
-        {
-            bool no_errors = true;
-            DataContractJsonSerializer jsonSerializerR = new DataContractJsonSerializer(typeof(List<Rule>));    // создается объект для работы с правилами в JSON
-            if (File.Exists("rules.json"))
-                using (FileStream file = new FileStream("rules.json", FileMode.Open))
-                {
-                    rules = jsonSerializerR.ReadObject(file) as List<Rule>;     // считываются правила из JSON
-                }
-            else
-                no_errors = false;
-            DataContractJsonSerializer jsonSerializerF = new DataContractJsonSerializer(typeof(List<Fact>));    // создается объект для работы с фактами в JSON
-            if (File.Exists("facts.json"))
-                using (FileStream file = new FileStream("facts.json", FileMode.Open))
-                {
-                    facts = jsonSerializerF.ReadObject(file) as List<Fact>; // считываются факты из JSON
-                }
-            else
-                no_errors = false;
-            return no_errors;
-        }
         public void Get_QuestionInfo(out string question, out List<string> answers, bool start)
         {
             question = null;
             answers = null;
             if (start)
             {
-                if (UploadKB())
+                if (Rule.UploadKB(ref rules, ref facts))
                 {
                     Fill_Fact_List();
                     Ask_Question(ref question, ref answers);
@@ -69,8 +42,10 @@ namespace Expert_system
             if (new_rules.Count == 0)
             {
                 for (int i = 0; i < facts.Count && (question == null || question=="repeat"); i++)
-                    if (current_facts[i].Name == c_fact)
-                        question = current_facts[i].Value;
+                    if (facts[i].Printout)
+                        for(int j=0;j<current_facts.Count && (question == null || question == "repeat"); j++)
+                            if (facts[i].Name==current_facts[j].Name)
+                                question = current_facts[i].Value;
                 answers = new List<string> { "####" };
                 return;
             }
@@ -105,18 +80,18 @@ namespace Expert_system
             }
 
         }
-        private bool Check_Rule(Rule rule)         // проверка на то, можно ли использовать правило
+        private bool Check_Rule(Rule rule)         // проверка на то, можно ли использовать правило (совпадают ли условия правила)
         {
             for (int i = 0; i < rule.Condition.Count; i++)
             {
-                string val = null;
-                for (int j = 0; j < current_facts.Count && val == null; j++)
+                for (int j = 0; j < current_facts.Count; j++)
                 {
+                    if (rule.Condition[i].Name == current_facts[j].Name && rule.Condition[i].Value != current_facts[j].Value)
+                        return false;
+                    else 
                     if (rule.Condition[i].Name == current_facts[j].Name)
-                        val = current_facts[j].Value;
+                        break;
                 }
-                if (rule.Condition[i].Value != val)
-                    return false;
             }
             return true;
         }
@@ -132,143 +107,8 @@ namespace Expert_system
             }
         }
         public void Fill_Test_Base()
-        {
-            #region Заполнение списков facts и rules
-            facts = new List<Fact> {
-                new Fact("pet", new List<string>{"You should get a dog.","You should get a cat.","You should get a fishes.","You should get a lizard.","You should get a parrot.","You shouldn't get a pet."}, true),
-                new Fact("free_time", new List<string>{"yes", "no"},false),
-                new Fact("allergies", new List<string>{"yes", "no"},false),
-                new Fact("noise_tolerance", new List<string>{"yes", "no"},false),
-                new Fact("spending", new List<string>{"yes", "no"},false),
-                new Fact("for_whom", new List<string>{"me","child","office"},false),
-                new Fact("fur", new List<string>{"yes", "no"},false),
-                new Fact("purpose", new List<string>{ "decorative", "interactive"},false),
-                new Fact("exotic", new List<string>{"yes", "no"},false)
-            };
-
-            rules = new List<Rule> {
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("free_time", ""),
-                    new CurrentFact("pet", "")},
-                    "Do you have a lot of free time?", facts[1], "", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("allergies", ""),
-                    new CurrentFact("pet", "")},
-                    "Do you have any pet allergies?", facts[2], "", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("noise_tolerance", ""),
-                    new CurrentFact("pet", "")},
-                    "Do you tolerate noise?", facts[3], "", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("spending", ""),
-                    new CurrentFact("pet", "")},
-                    "Are you ready to spend a lot of money?", facts[4], "", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("for_whom", ""),
-                    new CurrentFact("pet", "")},
-                    "For whom is the pet for?", facts[5], "", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", ""),
-                    new CurrentFact("free_time", "yes"),
-                    new CurrentFact("allergies", "no"),
-                    new CurrentFact("pet", "")},
-                    "", facts[6], "yes", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", ""),
-                    new CurrentFact("free_time", "no"),
-                    new CurrentFact("allergies", "no"),
-                    new CurrentFact("pet", "")},
-                    "", facts[6], "no", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", ""),
-                    new CurrentFact("allergies", "yes"),
-                    new CurrentFact("pet", "")},
-                    "", facts[6], "no", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("purpose", ""),
-                    new CurrentFact("spending", "yes"),
-                    new CurrentFact("for_whom", "me"),
-                    new CurrentFact("pet", "")},
-                    "", facts[7], "decorative", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("purpose", ""),
-                    new CurrentFact("for_whom", "office"),
-                    new CurrentFact("pet", "")},
-                    "", facts[7], "decorative", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("purpose", ""),
-                    new CurrentFact("spending", "no"),
-                    new CurrentFact("for_whom", "me"),
-                    new CurrentFact("pet", "")},
-                    "", facts[7], "interactive", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("purpose", ""),
-                    new CurrentFact("for_whom", "child"),
-                    new CurrentFact("pet", "")},
-                    "", facts[7], "interactive", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("exotic", ""),
-                    new CurrentFact("spending", "no"),
-                    new CurrentFact("purpose", "decorative"),
-                    new CurrentFact("pet", "")},
-                    "", facts[8], "no", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("exotic", ""),
-                    new CurrentFact("purpose", "interactive"),
-                    new CurrentFact("pet", "")},
-                    "", facts[8], "no", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("exotic", ""),
-                    new CurrentFact("purpose", "decorative"),
-                    new CurrentFact("spending", "yes"),
-                    new CurrentFact("pet", "")},
-                    "", facts[8], "yes", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", "yes"),
-                    new CurrentFact("noise_tolerance", "yes"),
-                    new CurrentFact("exotic", "no"),
-                    new CurrentFact("pet", "")},
-                    "", facts[0], "You should get a dog.", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", "yes"),
-                    new CurrentFact("noise_tolerance", "no"),
-                    new CurrentFact("exotic", "no"),
-                    new CurrentFact("pet", "")},
-                    "", facts[0], "You should get a cat.", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", "no"),
-                    new CurrentFact("noise_tolerance", "no"),
-                    new CurrentFact("exotic", "no"),
-                    new CurrentFact("pet", "")},
-                    "", facts[0], "You should get a fishes.", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", "no"),
-                    new CurrentFact("noise_tolerance", "no"),
-                    new CurrentFact("exotic", "yes"),
-                    new CurrentFact("pet", "")},
-                    "", facts[0], "You should get a lizard.", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("fur", "no"),
-                    new CurrentFact("noise_tolerance", "yes"),
-                    new CurrentFact("exotic", "yes"),
-                    new CurrentFact("pet", "")},
-                    "", facts[0], "You should get a parrot.", 0),
-                new Rule(new List<CurrentFact>{
-                    new CurrentFact("pet", "")},
-                    "", facts[0], "You shouldn't get a pet.", -10)
-            };
-            #endregion
-            DataContractJsonSerializer jsonSerializerR = new DataContractJsonSerializer(typeof(List<Rule>));    // создается объект для работы с правилами в JSON
-            using (FileStream file = new FileStream("rules.json", FileMode.Create))
-            {
-                jsonSerializerR.WriteObject(file, rules);   // заносятся данные о списке правил в JSON
-            }
-            DataContractJsonSerializer jsonSerializerF = new DataContractJsonSerializer(typeof(List<Fact>));    // создается объект для работы с фактами в JSON
-            using (FileStream file = new FileStream("facts.json", FileMode.Create))
-            {
-                jsonSerializerF.WriteObject(file, facts);   // заносятся данные о списке фактов в JSON
-            }
-            UploadKB();
-        }
+		{
+            Rule.FillTestBase(ref rules, ref facts);
+		}
     }
 }

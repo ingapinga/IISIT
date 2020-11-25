@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Json;
-using System.IO;
 
 namespace Expert_system
 {
