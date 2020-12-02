@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Json;
+using System.IO;
 
 namespace Expert_system
 {
     public partial class Form1 : Form
     {
         MLV mlv = new MLV();
+        COE coe = new COE();
+        
         public Form1()
         {
             InitializeComponent();
@@ -58,5 +62,10 @@ namespace Expert_system
             mlv.Set_Answer(comboBox_answer.Items[comboBox_answer.SelectedIndex].ToString());
             Fill_QuestionInfo(false);
         }
-    }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+            coe.PrintOutCurrentsFacts(mlv.GetCurrentFacts());
+		}
+	}
 }
