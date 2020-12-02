@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Expert_system
 {
@@ -42,10 +48,8 @@ namespace Expert_system
             if (new_rules.Count == 0)
             {
                 for (int i = 0; i < facts.Count && (question == null || question=="repeat"); i++)
-                    if (facts[i].Printout)
-                        for(int j=0;j<current_facts.Count && (question == null || question == "repeat"); j++)
-                            if (facts[i].Name==current_facts[j].Name)
-                                question = current_facts[i].Value;
+                    if (current_facts[i].Name == c_fact)
+                        question = current_facts[i].Value;
                 answers = new List<string> { "####" };
                 return;
             }
@@ -80,18 +84,18 @@ namespace Expert_system
             }
 
         }
-        private bool Check_Rule(Rule rule)         // проверка на то, можно ли использовать правило (совпадают ли условия правила)
+        private bool Check_Rule(Rule rule)         // проверка на то, можно ли использовать правило
         {
             for (int i = 0; i < rule.Condition.Count; i++)
             {
-                for (int j = 0; j < current_facts.Count; j++)
+                string val = null;
+                for (int j = 0; j < current_facts.Count && val == null; j++)
                 {
-                    if (rule.Condition[i].Name == current_facts[j].Name && rule.Condition[i].Value != current_facts[j].Value)
-                        return false;
-                    else 
                     if (rule.Condition[i].Name == current_facts[j].Name)
-                        break;
+                        val = current_facts[j].Value;
                 }
+                if (rule.Condition[i].Value != val)
+                    return false;
             }
             return true;
         }
@@ -109,6 +113,10 @@ namespace Expert_system
         public void Fill_Test_Base()
 		{
             Rule.FillTestBase(ref rules, ref facts);
+		}
+        public List<CurrentFact> GetCurrentFacts()
+		{
+            return current_facts;
 		}
     }
 }
