@@ -8,3 +8,13 @@ C:\Users\Zetta\Desktop\4 курс ИСИТ\4 лаб\CollDec\CollDec\obj\Debug\Co
 C:\Users\Zetta\Desktop\4 курс ИСИТ\4 лаб\CollDec\CollDec\obj\Debug\CollDec.csproj.CoreCompileInputs.cache
 C:\Users\Zetta\Desktop\4 курс ИСИТ\4 лаб\CollDec\CollDec\obj\Debug\CollDec.exe
 C:\Users\Zetta\Desktop\4 курс ИСИТ\4 лаб\CollDec\CollDec\obj\Debug\CollDec.pdb
+H:\ИИСИТ\CollDec\CollDec\bin\Debug\CollDec.exe.config
+H:\ИИСИТ\CollDec\CollDec\bin\Debug\CollDec.exe
+H:\ИИСИТ\CollDec\CollDec\bin\Debug\CollDec.pdb
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.csprojAssemblyReference.cache
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.Form1.resources
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.Properties.Resources.resources
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.csproj.GenerateResource.cache
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.csproj.CoreCompileInputs.cache
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.exe
+H:\ИИСИТ\CollDec\CollDec\obj\Debug\CollDec.pdb
