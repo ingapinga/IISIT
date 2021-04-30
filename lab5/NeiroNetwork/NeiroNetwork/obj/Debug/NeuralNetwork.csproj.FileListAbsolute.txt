@@ -1,0 +1,12 @@
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\bin\Debug\NeiroNetwork.exe.config
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\bin\Debug\NeiroNetwork.exe
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\bin\Debug\NeiroNetwork.pdb
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeuralNetwork.csprojAssemblyReference.cache
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeiroNetwork.Form1.resources
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeiroNetwork.Properties.Resources.resources
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeuralNetwork.csproj.GenerateResource.cache
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeuralNetwork.csproj.CoreCompileInputs.cache
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeiroNetwork.exe
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeiroNetwork.pdb
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\Interop.Office.dll
+H:\ИИСИТ\5 лаб\NeiroNetwork\NeiroNetwork\obj\Debug\NeuralNetwork.csproj.ResolveComReference.cache
