@@ -36,8 +36,8 @@
             this.button_LearnFromExcel = new System.Windows.Forms.Button();
             this.button_saveToExcel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 169);
+            this.button1.Location = new System.Drawing.Point(6, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 1;
@@ -125,6 +125,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Файловое обучение";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(6, 136);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(100, 47);
+            this.progressBar1.TabIndex = 7;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button1);
@@ -136,14 +143,6 @@
             this.groupBox2.Size = new System.Drawing.Size(114, 198);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "хз написать что-нибудь";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(6, 136);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(100, 47);
-            this.progressBar1.TabIndex = 7;
             // 
             // Form1
             // 

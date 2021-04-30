@@ -54,14 +54,13 @@ namespace NeiroNetwork
     class Layer
     {
         public List<Neuron> Neurons { get; }    // нейроны в слое
-
+        Random r = new Random();
         public Layer(int number_of_neurons, int number_of_connections)  // принимает количество нейронов в слое и количество нейронов в предыдущем слое для соединений
         {
             Neurons = new List<Neuron>();
             List<Connection> connections = new List<Connection>();
             for (int i = 0; i < number_of_connections; i++)
-                connections.Add(new Connection(0.5));
-
+                connections.Add(new Connection(r.NextDouble()));
             for (int i = 0; i < number_of_neurons; i++)
                 Neurons.Add(new Neuron(connections));
         }
@@ -95,6 +94,7 @@ namespace NeiroNetwork
 
         public void FixWeights(int error, List<byte> pixels)
         {
+
             for (int i = 0; i < Inputs.Count; i++)
             {
                 if (pixels[i] == 1)

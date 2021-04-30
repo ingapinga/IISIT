@@ -109,12 +109,15 @@ namespace NeiroNetwork
             Excel.Application ex = new Excel.Application();
             Excel.Workbook workBook = ex.Workbooks.Add(Type.Missing);
             Excel.Worksheet sheet = (Excel.Worksheet)ex.Worksheets.get_Item(1);
+            progressBar1.Value = 10;
             for (int i = 1; i <= pixel_number_w; i++)
                 for (int j = 1; j <= pixel_number_h; j++)
                     sheet.Cells[j, i] = pixels_values[i - 1, j - 1].ToString();
+            progressBar1.Value = 70;
             //Excel.Range r = sheet.get_Range(sheet.Cells[1, 1], sheet.get_Range(sheet.Cells[20, 20]));
             if (File.Exists(filepath + textBox1.Text + ".xlsx"))
             {
+                progressBar1.Value = 90;
                 Excel.Workbook workBook1 = ex.Workbooks.Open(filepath + textBox1.Text + ".xlsx");
                 //var sheets = workBook1.Sheets as Excel.Sheets; //var NewSheet = (Excel.Worksheet)sheets.Add(sheets[1], Type.Missing, Type.Missing, Type.Missing);
                 sheet.Copy(workBook1.Worksheets[ex.Sheets.Count]);
@@ -123,9 +126,11 @@ namespace NeiroNetwork
             }
             else
             {
+                progressBar1.Value = 95;
                 workBook.SaveAs(filepath + textBox1.Text + ".xlsx");
                 workBook.Close(false);
             }
+            progressBar1.Value = 0;
             ex.Quit();
         }
 
